@@ -12,16 +12,16 @@ class RootController extends AbstractController
 
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="homepage")
      */
-    public function homeAction(LoggerInterface $appLogger)
+    public function homeAction(/*LoggerInterface $appLogger*/)
     {
-        $username = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
-        $appLogger->info("IN: homeAction: username='" . $username . "'");
+        //$username = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+        //$appLogger->info("IN: homeAction: username='" . $username . "'");
 
         return $this->render('index.html.twig', [
             'controller_name' => 'HomeController',
-            'username' => $username,
+            'username' => 'username',
         ]);
     }
 
