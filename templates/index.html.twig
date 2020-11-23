@@ -2,16 +2,22 @@
 
 {% block body %}
 
-HOMEPAGE
-{#
-        <a href="{{ path('mostrapersona') }}">
+  {% if userBelongsTo(users_admin, app.user.username) or
+        userBelongsTo(users_manager, app.user.username) %}
+
+    <center>
+  
+      <a href="{{ path('mostrapersona') }}">
           <img src="{{ asset('assets/images/icon-persone.svg') }}" 
 	       alt="icon-persone" height="96" width="96"></a>
+      <br>
 
-        <a href="{{ path('modificapersona') }}">
+      <a href="{{ path('modificapersona') }}">
           <img src="{{ asset('assets/images/icon-nuova-persona.svg') }}" 
 	       alt="icon-nuova-persona" height="96" width="96"></a>
-#}
 
+    </center>
+      
+  {% endif %}
 	
 {% endblock %}

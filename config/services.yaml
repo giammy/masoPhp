@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    users_admin: '%env(resolve:USERS_ADMIN)%'
+    users_manager: '%env(resolve:USERS_MANAGER)%'
+    codice_utente_length: '%env(resolve:CODICE_UTENTE_LENGTH)%'
 
 services:
     # default configuration for services in *this* file

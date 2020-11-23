@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mostra persone{% endblock %}
+
+{% block javascripts %}
+  <script>
+    // initialization and configuration
+    $(document).ready( function () {
+        $('#personeShowallTable').dataTable( {
+              "fixedHeader": true,
+              "lengthMenu": [ 1000, 100, 75, 50, 25, 10 ]
+              //"info":     false, // remove header and footer
+              //"ordering": false,
+              //"bPaginate": false,
+              //"sDom": 'T<"clear">lfrtip'
+        } ); // end dataTable
+    } ); // end ready function
+    // END initialization and configuration
+  </script>
+{% endblock %}
+
+
+{% block body %}
+
+<table id="personeShowallTable">
+  <thead>
+    <tr>
+      <td></td>
+      <td>Cognome</td>
+      <td>Nome</td>
+      {# <td>Soprannome</td> #}
+      <td>Indirizzo</td>
+      <td>Citt&agrave;</td>
+      <td>Prov.</td>
+      {# <td>Stato</td> #}
+      <td>Codice Fiscale</td>
+      <td>Telefono1</td>
+      <td>Telefono2</td>
+      <td>E-mail</td>
+      <td></td>
+      <td>Codice Utente</td>
+      <td>Note</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for ar in list %}
+    <tr>
+      <td>        
+        <a href="{{ path('modificapersona', { 'id': ar.id }) }}">
+          <img src="{{ asset('assets/images/icon-edit.svg') }}" alt="edit" height="24" style="float:left"></img>
+        </a>
+      </td>
+      <td> {{ ar.cognome }} </td>
+      <td> {{ ar.nome }} </td>
+      {# <td> {{ ar.soprannome }} </td> #}
+      <td> {{ ar.indirizzo }} </td>
+      <td> {{ ar.citta }} </td>
+      <td> {{ ar.provincia }} </td>
+      {# <td> {{ ar.stato }} </td> #}
+      <td> {{ ar.codiceFiscale }} </td>
+      <td> {{ ar.telefono1 }} </td>
+      <td> {{ ar.telefono2 }} </td>
+      <td> {{ ar.email }} </td>
+      <td>
+
+        <a href="{{ path('cancellapersona', { 'id': ar.id }) }}"
+           onclick="return confirm('Rimuovo questo utente?')">
+          <img src="{{ asset('assets/images/icon-delete.svg') }}" alt="delete" height="24" style="float:left"></img>
+        </a>
+
+      </td>
+      <td> {{ ar.codiceUtente }} </td>
+      <td> {{ ar.nota }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifica persona{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+<table style="border-collapse: collapse;">
+  <tr>
+    <td> Cognome</td>
+    <td> {{ form_widget(attribute(form, "cognome"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Nome</td>
+    <td> {{ form_widget(attribute(form, "nome"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Soprannome</td>
+    <td> {{ form_widget(attribute(form, "soprannome"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+
+  <tr>
+    <td> Indirizzo</td>
+    <td> {{ form_widget(attribute(form, "indirizzo"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Citt&agrave;</td>
+    <td> {{ form_widget(attribute(form, "citta"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Provincia</td>
+    <td> {{ form_widget(attribute(form, "provincia"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Stato</td>
+    <td> {{ form_widget(attribute(form, "stato"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Codice Fiscale</td>
+    <td> {{ form_widget(attribute(form, "codiceFiscale"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Telefono1</td>
+    <td> {{ form_widget(attribute(form, "telefono1"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Telefono2</td>
+    <td> {{ form_widget(attribute(form, "telefono2"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> E-mail</td>
+    <td> {{ form_widget(attribute(form, "email"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+  <tr>
+    <td> Nota</td>
+    <td> {{ form_widget(attribute(form, "nota"), { 'attr': {'size': '40'} }) }} </td>
+  </tr>
+
+  
+</table>
+
+
+{{ form_end(form) }}
+
+{% endblock %}
