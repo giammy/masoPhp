@@ -3,3 +3,8 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     exception_controller: null
+
+    globals:
+        logo_file: '%env(LOGO_FILE)%'
+        users_admin: '%env(USERS_ADMIN)%'
+        users_manager: '%env(USERS_MANAGER)%'

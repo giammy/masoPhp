@@ -47,7 +47,7 @@
     <div id="wrapper">
       <div align="left">
         <a href="{{ path('homepage') }}">
-          <img src="{{ asset('assets/images/logo-maso.png') }}"
+          <img src="{{ asset(logo_file) }}"
            alt="Logo-MASO"
            height="96" width="400"
            style="margin-left:20px;margin-right:20px;margin-top:20px;margin-bottom:20px;float:left">
@@ -55,10 +55,19 @@
       </div>
     </div>
 
+    <div align="right">
+      {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% if userBelongsTo(users_admin, app.user.username) %} <font color="red">ADMIN</font> --- {% endif %}
+        {% if userBelongsTo(users_manager, app.user.username) %} <font >MANAGER</font> --- {% endif %}
+        User: {{ app.user.username }} ---
+        <a href="{{ logout_path('main') }}">Logout</a>
+      {% endif %}
+    </div>
+
+    
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
 
-    <hr>
     <hr>
 
     <center>
